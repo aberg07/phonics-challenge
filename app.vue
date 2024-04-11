@@ -3,7 +3,7 @@
   const deckIndex = ref(0);
   watch(deckIndex, (newIndex) => {
     if (newIndex >= wordDeck.length) deckIndex.value = 0;
-  }, {flush: 'sync'}) //{flush: 'sync'} lets watcher fire before any Vue-managed updates. Without it, this throws an arror as the currentWord computed function will attempt to run before the watcher checks if the index is valid
+  }, {flush: 'sync'}) //{flush: 'sync'} lets watcher fire before any Vue-managed updates. Without it, this throws an error as the currentWord computed function will attempt to run before the watcher checks if the index is valid
   const pointValue = ref(100);
   const currentPointValue = ref(pointValue.value);
   watch(currentPointValue, (newPointValue) => {
@@ -23,17 +23,22 @@
   watch(numHints, (newNumHints) => {
     if (newNumHints > currentWord.value.length) numHints.value = currentWord.value.length-1;
   })
-  const blankWord = computed(() => {
-    return currentWord.value.split('').fill('_');
-  });
-  //ex. apple will become _____
-  const hintWord = ref(blankWord.value);
+  //blankWord turns answer to blanks, e.g. "apple" will become _____
+  const blankWord = currentWord.value.split('').fill('_');
+  const hintWord = ref(blankWord);
+  const hintmsg = ref('');
+  //Tracking when the user asks for hints to prevent repeatedly asking for hints to encourage trying to figure out the answer in between hints.
+  const gaveHint = ref(false);
+  watch (userInput, () => {
+    gaveHint.value = false;
+  })
   const hintWordDisplay = computed(() => {
     return hintWord.value.join('');
   })
+  const showHintModal = ref(false);
 
   function submitAnswer() {
-    if (userInput.value.toLowerCase() === wordDeck[deckIndex.value].word.toLowerCase()) 
+    if (userInput.value.toLowerCase() === currentWord.value.toLowerCase()) 
     {
       if (currentPointValue.value > 0) {
         const oldPoints = points.value; //Get user's initial value to know when to stop animation
@@ -49,18 +54,53 @@
     hasAnswered.value = true;
   }
   function nextCard() {
+    //resetting necessary values
     hasAnswered.value = false;
     isCorrect.value = false;
     userInput.value = '';
     numHints.value = 0;
     currentPointValue.value = pointValue.value;
     deckIndex.value++;
-    hintWord.value = blankWord.value;
+    hintWord.value = blankWord; //increasing index before resetting hint word as it depends on the current word
   }
   function getHint() {
-    hintWord.value[numHints.value] = currentWord.value[numHints.value];
-    numHints.value++;
-    currentPointValue.value -= hintPenalty.value;
+    gaveHint.value = true;
+    hintWord.value = currentWord.value.split('').fill('_');
+    console.log(blankWord)
+    console.log(hintWord.value);
+    const hintIndex = getWrongIndex()!; //The exclamation mark tells TS that the function will not return undefined
+    switch(hintIndex) {
+      case -1: //No wrong index was found
+        hintmsg.value = 'とてもいい感じ！';
+        showHintModal.value = true;
+        break;
+      case -2: //The user's input is too long
+        hintmsg.value = 'この答えは長すぎます。'
+        showHintModal.value = true;
+        numHints.value++;
+        currentPointValue.value -= hintPenalty.value;
+        break;
+      default:
+        for (let i = 0; i <= hintIndex; i++) {
+          hintWord.value[i] = currentWord.value[i];
+        }
+        numHints.value++;
+        currentPointValue.value -= hintPenalty.value;
+        break;
+    }
+  }
+  function getWrongIndex() { //Will be used in getHint() to return the index where the user's input differs from the answer
+    if (userInput.value === '') return 0;
+    else if (userInput.value.toLowerCase() === currentWord.value.toLowerCase()) return -1; //user's answer is already correct
+    else if (userInput.value.length > currentWord.value.length) return -2; //user's answer is longer than correct answer
+    //Turning the answer and user input strings into arrays to be compared
+    const currentWordArray = currentWord.value.split('');
+    const userInputArray = userInput.value.split('');
+    for (let i = 0; i < userInputArray.length; i++) {
+      if (i >= currentWordArray.length) return -1;
+      else if (userInputArray[i].toLowerCase() != currentWordArray[i].toLowerCase()) return i;
+      else if (i == userInputArray.length-1) return i+1;
+    }
   }
 </script>
 
@@ -69,20 +109,40 @@
     <h1 class="text-4xl text-center">Phonics Challenge</h1>
     <p class="text-2xl text-left">Points: {{ points }} ({{ currentPointValue }})</p>
     <WordCard :word=wordDeck[deckIndex].word :path="wordDeck[deckIndex].path"/>
-    <p v-if="numHints > 0" class="text-2xl text-center tracking-widest">{{ hintWordDisplay }}</p>
-    <form class="answer-input flex flex-col justify-center items-center" @submit.prevent="submitAnswer">
+    <div class="h-8">
+      <p v-show="numHints > 0" class="text-2xl text-center tracking-widest">{{ hintWordDisplay }}</p>
+    </div>
+    <form class="my-10 answer-input flex flex-col justify-center items-center" @submit.prevent="submitAnswer">
         <label for="answer">Answer</label>
-        <input type="text" v-model="userInput" id="answer" class="border-2 border-zinc-950 w-80 text-center">
+        <input type="text" v-model="userInput" id="answer" class="border-2 rounded-md border-zinc-950 w-80 text-center">
         <div class="w-80 flex items-center justify-between">
-          <input type="submit" value="Submit" class="border-2 border-blue-400 w-20 cursor-pointer">
-          <input type='button' value="Hint" @click='getHint' class="border-2 border-blue-400 w-20 cursor-pointer">
+          <input type="submit" value="Submit" class="border-2 rounded-full bg-blue-400 text-white border-blue-400 w-20 cursor-pointer">
+          <input type='button' :disabled="gaveHint" value="Hint" @click='getHint' class="border-2 rounded-full bg-blue-400 text-white border-blue-400 w-20 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
         </div>
     </form>
+    <FeedbackModal v-if="showHintModal" @next="showHintModal = false">
+      <template v-slot:body>
+        {{ hintmsg }}
+      </template>
+      <template v-slot:button-text>
+        がんばって！
+      </template>
+    </FeedbackModal>
     <FeedbackModal v-if="hasAnswered && isCorrect" @next="nextCard">
-        Yay!
+      <template v-slot:body>
+        やった！
+      </template>
+      <template v-slot:button-text>
+        次へ
+      </template>
     </FeedbackModal>
     <FeedbackModal v-else-if="hasAnswered && !isCorrect" @next="hasAnswered = false">
+      <template v-slot:body>
         Keep trying...
+      </template>
+      <template v-slot:button-text>
+        やり直す
+      </template>
     </FeedbackModal>
   </div>
 </template>

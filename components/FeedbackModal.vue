@@ -11,9 +11,11 @@
             </div>
             -->
             <div class="flex flex-col gap-y-8 justify-center place-items-center h-full">
-                <slot>
+                <slot name="body">
                 </slot>
-                <button type="button" class="btn-next border-2 w-40" @click="$emit('next')">次へ</button>
+                <button type="button" class="btn-next border-2 w-52" @click="$emit('next')">
+                    <slot name="button-text"></slot>
+                </button>
             </div>
         </div>
     </div>
