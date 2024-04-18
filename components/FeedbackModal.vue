@@ -1,5 +1,9 @@
 <script setup lang="ts">
-
+const props = defineProps({
+    isFinal: { //If this is the final modal screen (e.g. level is complete), determines whether or not to render the button to redirect to home page
+        type: Boolean
+    }
+})
 </script>
 
 <template>
@@ -16,6 +20,11 @@
                 <button type="button" class="btn-next border-2 w-52" @click="$emit('next')">
                     <slot name="button-text"></slot>
                 </button>
+                <a href="/">
+                    <button v-if="props.isFinal" type="button" class="border-2 w-52">
+                        ホームへ戻る
+                    </button>
+                </a>
             </div>
         </div>
     </div>
