@@ -31,7 +31,7 @@
         <audio id="word-sound">
             <source :src="getSoundPath" type="audio/mpeg">
         </audio>
-        <font-awesome-icon icon="fa-solid fa-volume-high" size="3x" class="hover:cursor-pointer" @click="playSound"/>
-        <p>{{ $props.soundPath }}</p>
+        <font-awesome-icon icon="fa-solid fa-volume-high" size="3x" class="hover:cursor-pointer" @click="playSound">
+        </font-awesome-icon>
     </div>
 </template>
