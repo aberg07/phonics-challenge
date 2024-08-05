@@ -17,7 +17,7 @@
         return props.soundPath;
     })
     function playSound() {
-        const audioElement = document.getElementById('word-sound');
+        const audioElement = document.getElementById('word-sound') as HTMLAudioElement; //Tells typescript that this is in fact an audio element so it doesn't highlight it as an error
         audioElement.load(); //reloads audio element. If this is not present, it only plays the first sound file given
         audioElement.play();
     }

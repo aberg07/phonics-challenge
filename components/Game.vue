@@ -126,7 +126,7 @@
 <template>
   <div class="h-dvh">
     <h1 class="text-4xl text-center">Phonics Challenge</h1>
-    <p class="text-2xl text-left">Points: {{ points }} ({{ currentPointValue }})</p>
+    <p class="text-2xl text-left">Points: {{ points }}</p>
     <WordCard :word=wordDeck[deckIndex].word :imgPath="wordDeck[deckIndex].imgPath" :soundPath="wordDeck[deckIndex].soundPath"/>
     <div class="h-8">
       <p v-show="numHints > 0" class="text-2xl text-center tracking-widest">{{ hintWordDisplay }}</p>

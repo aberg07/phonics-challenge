@@ -1,24 +1,19 @@
 <script setup lang="ts">
     const showModal = ref(false);
+    const modalLevel = ref(1);
 </script>
 
 <template>
     <div>
         <h1 class="text-4xl text-center">Levels</h1>
-        <LevelModal v-show="showModal" path="/levels/level-one" @close="showModal = false">
-            <template #body>
-                Test
-            </template>
-            <template #button-text>
-                がんばろう！
-            </template>
+        <LevelModal v-show="showModal" path="/levels/level-one" :level="modalLevel" @close="showModal = false">
         </LevelModal>
         <div class="grid grid-cols-4 justify-items-center gap-y-8 p-8">
-            <LevelCard @click="showModal=true">
+            <LevelCard @click="showModal=true; modalLevel=1">
                 <template #level-text>レベル１</template>
                 <template #sub-text>s, a, t, i, p, n</template>
             </LevelCard>
-            <LevelCard path="/levels/level-two">
+            <LevelCard @click="showModal=true; modalLevel=2">
                 <template #level-text>レベル２</template>
                 <template #sub-text>c, k, e, h, r, m, d</template>
             </LevelCard>
