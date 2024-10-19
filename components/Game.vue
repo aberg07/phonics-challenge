@@ -24,6 +24,8 @@
   const hintPenalty = computed(() => {
     return (pointValue.value / currentWord.value.length);
   })
+  const maxPoints = wordDeck.length * 100;
+  const stars = ref(0);
   const userInput = ref('');
   const isCorrect = ref(false);
   const isFinished = ref(false);
@@ -69,6 +71,7 @@
     isCorrect.value = false;
     userInput.value = '';
     numHints.value = 0;
+    stars.value = 0;
     currentPointValue.value = pointValue.value;
     hintWord.value = blankWord; //increasing index before resetting hint word as it depends on the current word
     if (deckIndex.value == wordDeck.length -1) {
@@ -78,7 +81,13 @@
     }
   }
   function nextCard() {
-    if (deckIndex.value+1 >= wordDeck.length) isFinished.value = true;
+    if (deckIndex.value+1 >= wordDeck.length) {
+      if ((points.value/maxPoints) < 0.4) stars.value = 1;
+      else if ((points.value/maxPoints) >= 0.4 && (points.value/maxPoints) < 0.7) stars.value = 2;
+      else if ((points.value/maxPoints) >= 0.7 && (points.value/maxPoints) < 1) stars.value = 3;
+      else if ((points.value/maxPoints) == 1) stars.value = 4;
+      isFinished.value = true;
+    }
     else {
       reset();
       deckIndex.value++;
@@ -166,6 +175,18 @@
     <FeedbackModal :isFinal="true" v-if="isFinished" @next="reset">
       <template #body>
         Finished!
+      </template>
+      <template #msg v-if="stars==1">
+        Nice!
+      </template>
+      <template #msg v-else-if="stars==2">
+        Great!
+      </template>
+      <template #msg v-else-if="stars==3">
+        Amazing!
+      </template>
+      <template #msg v-else-if="stars==4">
+        Perfect!
       </template>
       <template #button-text>
         やり直す

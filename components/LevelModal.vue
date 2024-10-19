@@ -17,20 +17,22 @@
         {word: "pencil", imgPath: "/_nuxt/assets/images/pencil.png", soundPath: "/_nuxt/assets/sounds/pencil.mp3"},
         {word: "nest", imgPath: "/_nuxt/assets/images/nest.png", soundPath: "/_nuxt/assets/sounds/nest.mp3"}
     ];
-    /*
     const levelTwoCards = [
-        {word: "snake", imgPath: "/_nuxt/assets/images/snake.png"},
-        {word: "snake", imgPath: "/_nuxt/assets/images/snake.png"},
-        {word: "snake", imgPath: "/_nuxt/assets/images/snake.png"},
-        {word: "snake", imgPath: "/_nuxt/assets/images/snake.png"},
-        {word: "snake", imgPath: "/_nuxt/assets/images/snake.png"},
-        {word: "snake", imgPath: "/_nuxt/assets/images/snake.png"},
+        {word: "cat", imgPath: "/_nuxt/assets/images/cat.png", soundPath: "/_nuxt/assets/sounds/cat.mp3"},
+        {word: "king", imgPath: "/_nuxt/assets/images/king.png", soundPath: "/_nuxt/assets/sounds/king.mp3"},
+        {word: "egg", imgPath: "/_nuxt/assets/images/egg.png", soundPath: "/_nuxt/assets/sounds/egg.mp3"},
+        {word: "hat", imgPath: "/_nuxt/assets/images/hat.png", soundPath: "/_nuxt/assets/sounds/hat.mp3"},
+        {word: "rock", imgPath: "/_nuxt/assets/images/rock.png", soundPath: "/_nuxt/assets/sounds/rock.mp3"},
+        {word: "milk", imgPath: "/_nuxt/assets/images/milk.png", soundPath: "/_nuxt/assets/sounds/milk.mp3"},
+        {word: "dog", imgPath: "/_nuxt/assets/images/dog.png", soundPath: "/_nuxt/assets/sounds/dog.mp3"}
     ];
-    */
     const currentDeck = computed(() => {
         switch (props.level) {
             case 1:
                 return levelOneCards;
+                break;
+            case 2:
+                return levelTwoCards;
                 break;
         }
     })

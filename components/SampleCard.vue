@@ -24,9 +24,9 @@
 </script>
 
 <template>
-    <div class="flex flex-col flex-wrap justify-evenly items-center border-2 bg-white border-purple-400 rounded-xl w-1/4 h-1/2 hover:cursor-pointer" @click="playSound">
+    <div class="flex flex-col flex-wrap justify-evenly items-center border-2 bg-white border-purple-400 rounded-xl w-1/5 h-1/2 hover:cursor-pointer" @click="playSound">
         <div class="h-3/5 flex flex-col items-center justify-center">
-            <img class="w-40" :src="imgPath">
+            <img class="w-32" :src="imgPath">
         </div>
         <audio :id="`word-sound-${word}`" volume="1">
             <source :src="getSoundPath" type="audio/mpeg">

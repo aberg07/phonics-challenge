@@ -15,8 +15,14 @@ const props = defineProps({
             </div>
             -->
             <div class="flex flex-col gap-y-8 justify-center place-items-center h-full">
-                <slot name="body">
-                </slot>
+                <div>
+                    <slot name="body">
+                    </slot>
+                </div>
+                <div>
+                    <slot name="msg">
+                    </slot>
+                </div>
                 <button type="button" class="btn-next border-2 w-52" @click="$emit('next')">
                     <slot name="button-text"></slot>
                 </button>
