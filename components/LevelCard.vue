@@ -2,17 +2,20 @@
     const props = defineProps({
         path: {
             type: String,
+        },
+        isDisabled: {
+            type: Boolean
         }
     })
 </script>
 
 <template>
-    <a class="w-3/4 hover:cursor-pointer" :href=props.path>
-        <div class="level-card border-gray-600 border-2 w-full h-40 rounded-xl shadow-xl">
-            <h2 class="text-2xl text-center">
+    <a class="lg:w-3/4 md:w-11/12 hover:cursor-pointer" :href=props.path>
+        <div class="level-card border-gray-600 bg-sky-300 border-2 w-full lg:h-40 md:h-48 rounded-xl shadow-xl" :class="{disabled: isDisabled}">
+            <h2 class="text-white text-2xl text-center">
                 <slot name="level-text"></slot>
             </h2>
-            <p class="text-blue-400 mt-16 text-center">
+            <p class="text-white mt-12 text-center text-xl">
                 <slot name="sub-text"></slot>
             </p>
         </div>

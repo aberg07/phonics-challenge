@@ -11,8 +11,8 @@
         {word: "Pan", imgPath: '/_nuxt/assets/images/pan.png', soundPath:'/_nuxt/assets/sounds/pan.mp3'},
         {word: "Pat", imgPath: '/_nuxt/assets/images/pat.png', soundPath:'/_nuxt/assets/sounds/pat.mp3'},
         {word: "Pin", imgPath: '/_nuxt/assets/images/pin.png', soundPath:'/_nuxt/assets/sounds/pin.mp3'},
+        {word: "Pit", imgPath: '/_nuxt/assets/images/pit.png', soundPath:'/_nuxt/assets/sounds/pit.mp3'},
         {word: "Snap", imgPath: '/_nuxt/assets/images/snap.png', soundPath:'/_nuxt/assets/sounds/snap.mp3'},
-        {word: "Paint", imgPath: '/_nuxt/assets/images/paint.png', soundPath:'/_nuxt/assets/sounds/paint.mp3'},
         {word: "Pants", imgPath: '/_nuxt/assets/images/pants.png', soundPath:'/_nuxt/assets/sounds/pants.mp3'}
     ];
 </script>

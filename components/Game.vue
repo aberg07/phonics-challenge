@@ -133,63 +133,74 @@
 </script>
 
 <template>
-  <div class="h-dvh">
-    <h1 class="text-4xl text-center">Phonics Challenge</h1>
-    <p class="text-2xl text-left">Points: {{ points }}</p>
+  <div class="h-auto">
+    <div class="flex flex-col justify-center items-center">
+      <div class="bg-sky-300 w-auto border-gray-600 border-l-2 border-b-2 border-r-2 p-2">
+        <p class="lg:text-3xl md:text-5xl text-left text-white">Points: {{ points }}</p>
+      </div>
+    </div>
     <WordCard :word=wordDeck[deckIndex].word :imgPath="wordDeck[deckIndex].imgPath" :soundPath="wordDeck[deckIndex].soundPath"/>
     <div class="h-8">
-      <p v-show="numHints > 0" class="text-2xl text-center tracking-widest">{{ hintWordDisplay }}</p>
+      <p v-show="numHints > 0" class="lg:text-2xl md:text-5xl text-white text-center tracking-widest">{{ hintWordDisplay }}</p>
     </div>
-    <form class="answer-input flex flex-col justify-center items-center" @submit.prevent="submitAnswer">
-        <label for="answer">Answer</label>
-        <input type="text" v-model="userInput" id="answer" class="border-2 rounded-md border-zinc-950 w-80 text-center" :disabled="hasAnswered">
-        <div class="w-80 flex items-center justify-between">
-          <input type="submit" value="Submit" class="border-2 rounded-full bg-blue-400 text-white border-blue-400 w-20 cursor-pointer">
-          <input type='button' :disabled="gaveHint" value="Hint" @click='getHint' class="border-2 rounded-full bg-blue-400 text-white border-blue-400 w-20 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+    <form class="md:my-6 answer-input flex flex-col justify-center items-center" @submit.prevent="submitAnswer">
+      <div class="bg-white rounded-xl border-sky-300 border-4 answer-input flex flex-col justify-center items-center gap-y-4 lg:w-1/3 lg:h-36 md:w-1/2 md:h-56">
+        <label for="answer" class="lg:text-2xl md:text-4xl">Answer</label>
+        <input type="text" v-model="userInput" id="answer" class="border-2 rounded-md border-zinc-950 w-80 text-center lg:text-2xl md:text-3xl" :disabled="hasAnswered">
+        <div class="w-80 flex items-center justify-between md:gap-x-4">
+          <input type='button' :disabled="gaveHint" value="Hint" @click='getHint' class="lg:text-2xl md:text-3xl lg:w-1/3 md:w-1/2 border-2 rounded-full bg-blue-400 text-white border-blue-400 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+          <input type="submit" value="Submit" class="lg:text-2xl md:text-3xl lg:w-1/3 md:w-1/2 border-2 rounded-full bg-blue-400 text-white border-blue-400 cursor-pointer">
         </div>
+      </div>
     </form>
     <FeedbackModal v-if="showHintModal" @next="showHintModal = false">
       <template v-slot:body>
-        {{ hintmsg }}
+        <p class="lg:text-2xl md:text-4xl">{{ hintmsg }}</p>
       </template>
       <template v-slot:button-text>
-        がんばって！
+        <p class="lg:text-2xl md:text-4xl">Keep trying!</p>
       </template>
     </FeedbackModal>
     <FeedbackModal v-if="hasAnswered && isCorrect" @next="nextCard">
       <template v-slot:body>
-        やった！
+        <p class="lg:text-3xl md:text-5xl">Nice!</p>
+      </template>
+      <template #msg>
+        <img class="lg:w-1/2 md:w-3/4" src="~/assets/images/feedback/maru.png" />
       </template>
       <template v-slot:button-text>
-        次へ
+        <p class="lg:text-xl md:text-4xl">Next</p>
       </template>
     </FeedbackModal>
     <FeedbackModal v-else-if="hasAnswered && !isCorrect" @next="hasAnswered = false">
       <template v-slot:body>
-        Keep trying...
+        <p class="lg:text-3xl md:text-5xl">Keep trying!</p>
+      </template>
+      <template #msg>
+        <img class="lg:w-1/2 md:w-3/4" src="~/assets/images/feedback/batsu.png" />
       </template>
       <template v-slot:button-text>
-        やり直す
+        <p class="lg:text-xl md:text-4xl">Try again</p>
       </template>
     </FeedbackModal>
     <FeedbackModal :isFinal="true" v-if="isFinished" @next="reset">
       <template #body>
-        Finished!
+        <p class="lg:text-2xl md:text-5xl">Finished!</p>
       </template>
       <template #msg v-if="stars==1">
-        Nice!
+        <img class="w-3/4" src="~/assets/images/feedback/1 star.png" />
       </template>
       <template #msg v-else-if="stars==2">
-        Great!
+        <img class="w-3/4" src="~/assets/images/feedback/2 stars.png" />
       </template>
       <template #msg v-else-if="stars==3">
-        Amazing!
+        <img class="w-3/4" src="~/assets/images/feedback/3 stars.png" />
       </template>
       <template #msg v-else-if="stars==4">
-        Perfect!
+        <img class="w-3/4" src="~/assets/images/feedback/3 stars perfect.png" />
       </template>
       <template #button-text>
-        やり直す
+        <p class="lg:text-xl md:text-4xl">やり直す</p>
       </template>
     </FeedbackModal>
   </div>

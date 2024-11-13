@@ -39,7 +39,7 @@
 </script>
 
 <template>
-    <div class='modal-backdrop flex justify-center place-items-center bg-[#0000004D] fixed top-0 bottom-0 left-0 right-0'>
+    <div class='modal-backdrop flex justify-center place-items-center bg-[#0000004D] fixed top-0 bottom-0 left-0 right-0 z-10'>
         <div class='modal flex flex-col shadow-2xl bg-white overflow-x-auto w-3/4 h-5/6 p-4 border-purple-400 border-4 rounded-2xl'>
             <div class="flex justify-end place-items-end">
                 <font-awesome-icon class="hover:cursor-pointer mb-4 text-purple-400" size="2xl" icon="fa-regular fa-circle-xmark" @click="$emit('close')"></font-awesome-icon>
@@ -49,8 +49,8 @@
             </div>
             <div class="flex flex-col justify-center place-items-center h-1/6">
                 <a :href="props.path">
-                    <button type="button" class="h-12 btn-next border-2 bg-purple-400 border-purple-400 rounded-2xl w-52 text-white">
-                        <p class="text-center text-xl">がんばろう！</p>
+                    <button type="button" class="h-12 btn-next border-2 bg-purple-400 border-purple-400 rounded-2xl w-52 text-white md:w-80 md:h-20">
+                        <p class="text-center text-xl md:text-4xl">がんばろう！</p>
                     </button>
                 </a>
             </div>

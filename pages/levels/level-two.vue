@@ -5,8 +5,7 @@
         soundPath: string
     }
     const levelTwoWords: wordCard[] = [
-        {word: "Ask", imgPath: '/_nuxt/assets/images/ask.png', soundPath:'/_nuxt/assets/sounds/ask.mp3'},
-        {word: "Car", imgPath: '/_nuxt/assets/images/car.png', soundPath:'/_nuxt/assets/sounds/car.mp3'},
+        {word: "Ink", imgPath: '/_nuxt/assets/images/ink.png', soundPath:'/_nuxt/assets/sounds/ink.mp3'},
         {word: "Can", imgPath: '/_nuxt/assets/images/can.png', soundPath:'/_nuxt/assets/sounds/can.mp3'},
         {word: "Ham", imgPath: '/_nuxt/assets/images/ham.png', soundPath:'/_nuxt/assets/sounds/ham.mp3'},
         {word: "Hat", imgPath: '/_nuxt/assets/images/hat.png', soundPath:'/_nuxt/assets/sounds/hat.mp3'},
@@ -23,8 +22,7 @@
         {word: "Rest", imgPath: '/_nuxt/assets/images/rest.png', soundPath:'/_nuxt/assets/sounds/rest.mp3'},
         {word: "Kick", imgPath: '/_nuxt/assets/images/kick.png', soundPath:'/_nuxt/assets/sounds/kick.mp3'},
         {word: "Dress", imgPath: '/_nuxt/assets/images/dress.png', soundPath:'/_nuxt/assets/sounds/dress.mp3'},
-        {word: "Horse", imgPath: '/_nuxt/assets/images/horse.png', soundPath:'/_nuxt/assets/sounds/horse.mp3'},
-        {word: "Drink", imgPath: '/_nuxt/assets/images/drink.png', soundPath:'/_nuxt/assets/sounds/drink.mp3'}
+        {word: "Stick", imgPath: '/_nuxt/assets/images/stick.png', soundPath:'/_nuxt/assets/sounds/stick.mp3'}
     ];
 </script>
 

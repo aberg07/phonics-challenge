@@ -1,41 +1,41 @@
 <script setup lang="ts">
     const showModal = ref(false);
     const modalLevel = ref(1);
+    const levelPath = ref('')
 </script>
 
 <template>
     <div>
-        <h1 class="text-4xl text-center">Levels</h1>
-        <LevelModal v-show="showModal" path="/levels/level-one" :level="modalLevel" @close="showModal = false">
+        <LevelModal v-show="showModal" :path="levelPath" :level="modalLevel" @close="showModal = false">
         </LevelModal>
-        <div class="grid grid-cols-4 justify-items-center gap-y-8 p-8">
-            <LevelCard @click="showModal=true; modalLevel=1">
-                <template #level-text>レベル１</template>
-                <template #sub-text>s, a, t, i, p, n</template>
+        <div class="grid lg:grid-cols-4 md:grid-cols-3 justify-items-center gap-y-8 p-8">
+            <LevelCard :is-disabled="false" @click="showModal=true; modalLevel=1; levelPath='/levels/level-one'">
+                <template #level-text><p class="lg:text-4xl md:text-4xl">Level 1</p></template>
+                <template #sub-text><p class="lg:text-2xl md:text-3xl">s, a, t, i, p, n</p></template>
             </LevelCard>
-            <LevelCard @click="showModal=true; modalLevel=2">
-                <template #level-text>レベル２</template>
-                <template #sub-text>c, k, e, h, r, m, d</template>
+            <LevelCard :is-disabled="false" @click="showModal=true; modalLevel=2; levelPath='/levels/level-two'">
+                <template #level-text><p class="lg:text-4xl md:text-4xl">Level 2</p></template>
+                <template #sub-text><p class="lg:text-2xl md:text-3xl">ck, e, h, r, m, d</p></template>
             </LevelCard>
-            <LevelCard path="/levels/level-three">
-                <template #level-text>レベル３</template>
-                <template #sub-text>g, o, u, l, f, b</template>
+            <LevelCard :is-disabled="true">
+                <template #level-text><p class="lg:text-4xl md:text-4xl">Level 3</p></template>
+                <template #sub-text><p class="lg:text-2xl md:text-3xl">g, o, u, l, f, b</p></template>
             </LevelCard>
-            <LevelCard path="/levels/level-four">
-                <template #level-text>レベル４</template>
-                <template #sub-text>ai, j, oa, ie, ee, or</template>
+            <LevelCard :is-disabled="true">
+                <template #level-text><p class="lg:text-4xl md:text-4xl">Level 4</p></template>
+                <template #sub-text><p class="lg:text-2xl md:text-3xl">ai, j, oa, ie, ee, or</p></template>
             </LevelCard>
-            <LevelCard path="/levels/level-five">
-                <template #level-text>レベル５</template>
-                <template #sub-text>z, w, ng, v, oo</template>
+            <LevelCard :is-disabled="true">
+                <template #level-text><p class="lg:text-4xl md:text-4xl">Level 5</p></template>
+                <template #sub-text><p class="lg:text-2xl md:text-3xl">z, w, ng, v, oo</p></template>
             </LevelCard>
-            <LevelCard path="/levels/level-six">
-                <template #level-text>レベル６</template>
-                <template #sub-text>y, x, ch, sh, th</template>
+            <LevelCard :is-disabled="true">
+                <template #level-text><p class="lg:text-4xl md:text-4xl">Level 6</p></template>
+                <template #sub-text><p class="lg:text-2xl md:text-3xl">y, x, ch, sh, th</p></template>
             </LevelCard>
-            <LevelCard path="/levels/level-seven">
-                <template #level-text>レベル７</template>
-                <template #sub-text>qu, ou, oi, ue, er, ar</template>
+            <LevelCard :is-disabled="true">
+                <template #level-text><p class="lg:text-4xl md:text-4xl">Level 7</p></template>
+                <template #sub-text><p class="lg:text-2xl md:text-3xl">qu, ou, oi, ue, er, ar</p></template>
             </LevelCard>
         </div>
     </div>
