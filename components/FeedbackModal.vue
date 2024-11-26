@@ -23,7 +23,7 @@ const props = defineProps({
                 </button>
                 <a href="/">
                     <button v-if="props.isFinal" type="button" class="border-2 bg-purple-400 text-white border-purple-400 rounded-xl lg:w-52 md:w-96 md:h-20">
-                        <p class="lg:text-xl md:text-4xl">ホームへ戻る</p>
+                        <p class="lg:text-3xl md:text-4xl">ホームへ戻る</p>
                     </button>
                 </a>
             </div>

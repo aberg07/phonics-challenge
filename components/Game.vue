@@ -135,13 +135,13 @@
 <template>
   <div class="h-auto">
     <div class="flex flex-col justify-center items-center">
-      <div class="bg-sky-300 w-auto border-gray-600 border-l-2 border-b-2 border-r-2 p-2">
+      <div class="bg-sky-300 w-auto border-gray-600 border-l-2 border-b-2 border-r-2 p-2 rounded-b-xl">
         <p class="lg:text-3xl md:text-5xl text-left text-white">Points: {{ points }}</p>
       </div>
     </div>
     <WordCard :word=wordDeck[deckIndex].word :imgPath="wordDeck[deckIndex].imgPath" :soundPath="wordDeck[deckIndex].soundPath"/>
     <div class="h-8">
-      <p v-show="numHints > 0" class="lg:text-2xl md:text-5xl text-white text-center tracking-widest">{{ hintWordDisplay }}</p>
+      <p v-show="numHints > 0" class="lg:text-3xl md:text-5xl font-bold text-white text-center tracking-widest">{{ hintWordDisplay }}</p>
     </div>
     <form class="md:my-6 answer-input flex flex-col justify-center items-center" @submit.prevent="submitAnswer">
       <div class="bg-white rounded-xl border-sky-300 border-4 answer-input flex flex-col justify-center items-center gap-y-4 lg:w-1/3 lg:h-36 md:w-1/2 md:h-56">
@@ -155,37 +155,37 @@
     </form>
     <FeedbackModal v-if="showHintModal" @next="showHintModal = false">
       <template v-slot:body>
-        <p class="lg:text-2xl md:text-4xl">{{ hintmsg }}</p>
+        <p class="lg:text-3xl md:text-4xl">{{ hintmsg }}</p>
       </template>
       <template v-slot:button-text>
-        <p class="lg:text-2xl md:text-4xl">Keep trying!</p>
+        <p class="lg:text-3xl md:text-4xl">Keep trying!</p>
       </template>
     </FeedbackModal>
     <FeedbackModal v-if="hasAnswered && isCorrect" @next="nextCard">
       <template v-slot:body>
-        <p class="lg:text-3xl md:text-5xl">Nice!</p>
+        <p class="lg:text-4xl md:text-5xl">Nice!</p>
       </template>
       <template #msg>
         <img class="lg:w-1/2 md:w-3/4" src="~/assets/images/feedback/maru.png" />
       </template>
       <template v-slot:button-text>
-        <p class="lg:text-xl md:text-4xl">Next</p>
+        <p class="lg:text-3xl md:text-4xl">Next</p>
       </template>
     </FeedbackModal>
     <FeedbackModal v-else-if="hasAnswered && !isCorrect" @next="hasAnswered = false">
       <template v-slot:body>
-        <p class="lg:text-3xl md:text-5xl">Keep trying!</p>
+        <p class="lg:text-4xl md:text-5xl">Keep trying!</p>
       </template>
       <template #msg>
         <img class="lg:w-1/2 md:w-3/4" src="~/assets/images/feedback/batsu.png" />
       </template>
       <template v-slot:button-text>
-        <p class="lg:text-xl md:text-4xl">Try again</p>
+        <p class="lg:text-3xl md:text-4xl">Try again</p>
       </template>
     </FeedbackModal>
     <FeedbackModal :isFinal="true" v-if="isFinished" @next="reset">
       <template #body>
-        <p class="lg:text-2xl md:text-5xl">Finished!</p>
+        <p class="lg:text-4xl md:text-6xl">Finished!</p>
       </template>
       <template #msg v-if="stars==1">
         <img class="w-3/4" src="~/assets/images/feedback/1 star.png" />
@@ -200,7 +200,7 @@
         <img class="w-3/4" src="~/assets/images/feedback/3 stars perfect.png" />
       </template>
       <template #button-text>
-        <p class="lg:text-xl md:text-4xl">やり直す</p>
+        <p class="lg:text-3xl md:text-4xl">やり直す</p>
       </template>
     </FeedbackModal>
   </div>
