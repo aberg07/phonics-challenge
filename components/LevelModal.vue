@@ -10,20 +10,20 @@
         }
     })
     const levelOneCards = [
-        {word: "snake", phonicSound: "s", imgPath: "/_nuxt/assets/images/snake.png", soundPath: "/_nuxt/assets/sounds/samples/level-one/snake.mp3"},
-        {word: "apple", phonicSound: "a", imgPath: "/_nuxt/assets/images/apple.png", soundPath: "/_nuxt/assets/sounds/samples/level-one/apple.mp3"},
-        {word: "tiger", phonicSound: "t", imgPath: "/_nuxt/assets/images/tiger.png", soundPath: "/_nuxt/assets/sounds/samples/level-one/tiger.mp3"},
-        {word: "ink", phonicSound: "i", imgPath: "/_nuxt/assets/images/ink.png", soundPath: "/_nuxt/assets/sounds/samples/level-one/ink.mp3"},
-        {word: "pencil", phonicSound: "p", imgPath: "/_nuxt/assets/images/pencil.png", soundPath: "/_nuxt/assets/sounds/samples/level-one/pencil.mp3"},
-        {word: "nest", phonicSound: "n", imgPath: "/_nuxt/assets/images/nest.png", soundPath: "/_nuxt/assets/sounds/samples/level-one/nest.mp3"}
+        {word: "snake", phonicSound: "s", imgPath: "/images/snake.png", soundPath: "/sounds/samples/level-one/snake.mp3"},
+        {word: "apple", phonicSound: "a", imgPath: "/images/apple.png", soundPath: "/sounds/samples/level-one/apple.mp3"},
+        {word: "tiger", phonicSound: "t", imgPath: "/images/tiger.png", soundPath: "/sounds/samples/level-one/tiger.mp3"},
+        {word: "ink", phonicSound: "i", imgPath: "/images/ink.png", soundPath: "/sounds/samples/level-one/ink.mp3"},
+        {word: "pencil", phonicSound: "p", imgPath: "/images/pencil.png", soundPath: "/sounds/samples/level-one/pencil.mp3"},
+        {word: "nest", phonicSound: "n", imgPath: "/images/nest.png", soundPath: "/sounds/samples/level-one/nest.mp3"}
     ];
     const levelTwoCards = [
-        {word: "lock", phonicSound: "ck", imgPath: "/_nuxt/assets/images/lock.png", soundPath: "/_nuxt/assets/sounds/samples/level-two/lock.mp3"},
-        {word: "egg", phonicSound: "e", imgPath: "/_nuxt/assets/images/egg.png", soundPath: "/_nuxt/assets/sounds/samples/level-two/egg.mp3"},
-        {word: "hat", phonicSound: "h", imgPath: "/_nuxt/assets/images/hat.png", soundPath: "/_nuxt/assets/sounds/samples/level-two/hat.mp3"},
-        {word: "rock", phonicSound: "r", imgPath: "/_nuxt/assets/images/rock.png", soundPath: "/_nuxt/assets/sounds/samples/level-two/rock.mp3"},
-        {word: "milk", phonicSound: "m", imgPath: "/_nuxt/assets/images/milk.png", soundPath: "/_nuxt/assets/sounds/samples/level-two/milk.mp3"},
-        {word: "dog", phonicSound: "d", imgPath: "/_nuxt/assets/images/dog.png", soundPath: "/_nuxt/assets/sounds/samples/level-two/dog.mp3"}
+        {word: "lock", phonicSound: "ck", imgPath: "/images/lock.png", soundPath: "/sounds/samples/level-two/lock.mp3"},
+        {word: "egg", phonicSound: "e", imgPath: "/images/egg.png", soundPath: "/sounds/samples/level-two/egg.mp3"},
+        {word: "hat", phonicSound: "h", imgPath: "/images/hat.png", soundPath: "/sounds/samples/level-two/hat.mp3"},
+        {word: "rock", phonicSound: "r", imgPath: "/images/rock.png", soundPath: "/sounds/samples/level-two/rock.mp3"},
+        {word: "milk", phonicSound: "m", imgPath: "/images/milk.png", soundPath: "/sounds/samples/level-two/milk.mp3"},
+        {word: "dog", phonicSound: "d", imgPath: "/images/dog.png", soundPath: "/sounds/samples/level-two/dog.mp3"}
     ];
     const currentDeck = computed(() => {
         switch (props.level) {
