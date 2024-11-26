@@ -5,9 +5,9 @@
         soundPath: string
     }
     const levelTwoWords: wordCard[] = [
-        {word: "Ink", imgPath: '/_nuxt/assets/images/ink.png', soundPath:'/_nuxt/assets/sounds/ink.mp3'},
-        {word: "Can", imgPath: '/_nuxt/assets/images/can.png', soundPath:'/_nuxt/assets/sounds/can.mp3'},
-        {word: "Ham", imgPath: '/_nuxt/assets/images/ham.png', soundPath:'/_nuxt/assets/sounds/ham.mp3'},
+        {word: "Ink", imgPath: '/_nuxt/assets/images/ink.png', soundPath:'/_nuxt/assets/sounds/levels/level-two/ink.mp3'},
+        {word: "Can", imgPath: '/_nuxt/assets/images/can.png', soundPath:'/_nuxt/assets/sounds/levels/level-two/can.mp3'},
+        {word: "Ham", imgPath: '/_nuxt/assets/images/ham.png', soundPath:'/_nuxt/assets/sounds/levels/level-two/ham.mp3'},
         {word: "Hat", imgPath: '/_nuxt/assets/images/hat.png', soundPath:'/_nuxt/assets/sounds/hat.mp3'},
         {word: "Hit", imgPath: '/_nuxt/assets/images/hit.png', soundPath:'/_nuxt/assets/sounds/hit.mp3'},
         {word: "Man", imgPath: '/_nuxt/assets/images/man.png', soundPath:'/_nuxt/assets/sounds/man.mp3'},
