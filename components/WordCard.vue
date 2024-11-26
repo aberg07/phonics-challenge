@@ -31,7 +31,6 @@
         <audio id="word-sound">
             <source :src="getSoundPath" type="audio/mpeg">
         </audio>
-        <font-awesome-icon icon="fa-solid fa-volume-high" size="4x" class="hover:cursor-pointer" @click="playSound">
-        </font-awesome-icon>
+        <img class="lg:w-16 md:w-24 hover:cursor-pointer" :src="'/icons/volume-icon.png'" @click="playSound">
     </div>
 </template>
