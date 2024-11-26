@@ -188,16 +188,16 @@
         <p class="lg:text-4xl md:text-6xl">Finished!</p>
       </template>
       <template #msg v-if="stars==1">
-        <img class="w-3/4" src="/images/feedback/1 star.png" />
+        <img class="w-3/4" src="/images/feedback/1-star.png" />
       </template>
       <template #msg v-else-if="stars==2">
-        <img class="w-3/4" src="/images/feedback/2 stars.png" />
+        <img class="w-3/4" src="/images/feedback/2-stars.png" />
       </template>
       <template #msg v-else-if="stars==3">
-        <img class="w-3/4" src="/images/feedback/3 stars.png" />
+        <img class="w-3/4" src="/images/feedback/3-stars.png" />
       </template>
       <template #msg v-else-if="stars==4">
-        <img class="w-3/4" src="/images/feedback/3 stars perfect.png" />
+        <img class="w-3/4" src="/images/feedback/3-stars-perfect.png" />
       </template>
       <template #button-text>
         <p class="lg:text-3xl md:text-4xl">やり直す</p>
