@@ -13,7 +13,7 @@
                 <template #level-text><p class="text-2xl lg:text-4xl md:text-5xl">Level 1</p></template>
                 <template #sub-text><p class="text-xl lg:text-2xl md:text-3xl">s, a, t, i, p, n</p></template>
             </LevelCard>
-            <LevelCard :is-disabled="false" @click="showModal=true; modalLevel=2; levelPath='/levels/level-two'">
+            <LevelCard :is-disabled="true">
                 <template #level-text><p class="text-2xl lg:text-4xl md:text-5xl">Level 2</p></template>
                 <template #sub-text><p class="text-xl lg:text-2xl md:text-3xl">ck, e, h, r, m, d</p></template>
             </LevelCard>

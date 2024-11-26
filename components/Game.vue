@@ -166,7 +166,7 @@
         <p class="lg:text-4xl md:text-5xl">Nice!</p>
       </template>
       <template #msg>
-        <img class="lg:w-1/2 md:w-3/4" src="~/assets/images/feedback/maru.png" />
+        <img class="lg:w-1/2 md:w-3/4" src="/images/feedback/maru.png" />
       </template>
       <template v-slot:button-text>
         <p class="lg:text-3xl md:text-4xl">Next</p>
@@ -177,7 +177,7 @@
         <p class="lg:text-4xl md:text-5xl">Keep trying!</p>
       </template>
       <template #msg>
-        <img class="lg:w-1/2 md:w-3/4" src="~/assets/images/feedback/batsu.png" />
+        <img class="lg:w-1/2 md:w-3/4" src="/images/feedback/batsu.png" />
       </template>
       <template v-slot:button-text>
         <p class="lg:text-3xl md:text-4xl">Try again</p>
@@ -188,16 +188,16 @@
         <p class="lg:text-4xl md:text-6xl">Finished!</p>
       </template>
       <template #msg v-if="stars==1">
-        <img class="w-3/4" src="~/assets/images/feedback/1 star.png" />
+        <img class="w-3/4" src="/images/feedback/1 star.png" />
       </template>
       <template #msg v-else-if="stars==2">
-        <img class="w-3/4" src="~/assets/images/feedback/2 stars.png" />
+        <img class="w-3/4" src="/images/feedback/2 stars.png" />
       </template>
       <template #msg v-else-if="stars==3">
-        <img class="w-3/4" src="~/assets/images/feedback/3 stars.png" />
+        <img class="w-3/4" src="/images/feedback/3 stars.png" />
       </template>
       <template #msg v-else-if="stars==4">
-        <img class="w-3/4" src="~/assets/images/feedback/3 stars perfect.png" />
+        <img class="w-3/4" src="/images/feedback/3 stars perfect.png" />
       </template>
       <template #button-text>
         <p class="lg:text-3xl md:text-4xl">やり直す</p>
