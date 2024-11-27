@@ -44,7 +44,6 @@
                 <div class="hover:cursor-pointer flex lg:w-16 lg:h-16 md:w-12 md:h-12 flex-col justify-center items-center border-2 rounded-full border-purple-400 bg-purple-400" @click="$emit('close')">
                     <span class="text-white md:text-2xl lg:text-3xl">X</span>
                 </div>
-                <!--<font-awesome-icon class="hover:cursor-pointer text-purple-400" size="2xl" icon="fa-regular fa-circle-xmark" @click="$emit('close')"></font-awesome-icon>-->
             </div>
             <div class="flex flex-row h-5/6 justify-center flex-wrap gap-2">
                 <SampleCard v-for="card in currentDeck" :key="card.word" :phonicSound="card.phonicSound" :word="card.word" :imgPath="card.imgPath" :soundPath="card.soundPath"></SampleCard>
