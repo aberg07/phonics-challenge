@@ -41,12 +41,15 @@
     <div class='modal-backdrop flex justify-center place-items-center bg-[#0000004D] fixed top-0 bottom-0 left-0 right-0 z-10'>
         <div class='modal flex flex-col shadow-2xl bg-white overflow-x-auto w-3/4 h-5/6 p-4 border-purple-400 border-4 rounded-2xl'>
             <div class="flex justify-end place-items-end h-min">
-                <font-awesome-icon class="hover:cursor-pointer text-purple-400" size="2xl" icon="fa-regular fa-circle-xmark" @click="$emit('close')"></font-awesome-icon>
+                <div class="hover:cursor-pointer flex lg:w-16 lg:h-16 md:w-12 md:h-12 flex-col justify-center items-center border-2 rounded-full border-purple-400 bg-purple-400" @click="$emit('close')">
+                    <span class="text-white md:text-2xl lg:text-3xl">X</span>
+                </div>
+                <!--<font-awesome-icon class="hover:cursor-pointer text-purple-400" size="2xl" icon="fa-regular fa-circle-xmark" @click="$emit('close')"></font-awesome-icon>-->
             </div>
             <div class="flex flex-row h-5/6 justify-center flex-wrap gap-2">
                 <SampleCard v-for="card in currentDeck" :key="card.word" :phonicSound="card.phonicSound" :word="card.word" :imgPath="card.imgPath" :soundPath="card.soundPath"></SampleCard>
             </div>
-            <div class="flex flex-col justify-center place-items-center h-1/6">
+            <div class="flex flex-col justify-center place-items-center h-1/6 my-2">
                 <a :href="props.path">
                     <button type="button" class="h-12 btn-next border-2 bg-purple-400 border-purple-400 rounded-2xl w-52 text-white md:w-80 md:h-20">
                         <p class="text-center text-xl md:text-4xl">がんばろう！</p>
@@ -56,5 +59,3 @@
         </div>
     </div>
 </template>
-
-<style src="@fortawesome/fontawesome-svg-core/styles.css"></style>

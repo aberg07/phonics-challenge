@@ -31,6 +31,6 @@
         <audio id="word-sound">
             <source :src="getSoundPath" type="audio/mpeg">
         </audio>
-        <img class="lg:w-16 md:w-24 hover:cursor-pointer" :src="'/icons/volume-icon.png'" @click="playSound">
+        <img class="lg:w-16 md:w-24 hover:cursor-pointer" :src="'/_nuxt/assets/icons/volume-icon.png'" @click="playSound">
     </div>
 </template>
