@@ -166,7 +166,7 @@
         <p class="text-5xl lg:text-4xl">Nice!</p>
       </template>
       <template #msg>
-        <img class="w-3/4 lg:w-1/2" src="/images/feedback/maru.png" />
+        <img class="lg:w-1/2 md:w-3/4" src="/images/feedback/maru.png" />
       </template>
       <template v-slot:button-text>
         <p class="text-4xl lg:text-3xl">Next</p>
@@ -177,7 +177,7 @@
         <p class="text-5xl lg:text-4xl">Keep trying!</p>
       </template>
       <template #msg>
-        <img class="w-3/4 lg:w-1/2" src="/images/feedback/batsu.png" />
+        <img class="lg:w-1/2 md:w-3/4" src="/images/feedback/batsu.png" />
       </template>
       <template v-slot:button-text>
         <p class="text-4xl lg:text-3xl">Try again</p>

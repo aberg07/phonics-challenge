@@ -25,7 +25,7 @@
 
 <template>
     <div class="card-wrapper flex flex-col gap-y-4 justify-center items-center my-2">
-        <div class="card bg-white rounded-xl border-4 border-sky-300 w-4/5 h-80 lg:w-2/5 md:w-2/3 lg:h-[22rem] md:h-96 flex justify-center items-center">
+        <div class="card bg-white rounded-xl border-4 border-sky-300 w-4/5 h-80 lg:w-2/5 md:w-2/3 xl:h-[22rem] lg:h-[18rem] md:h-96 flex justify-center items-center">
             <img class="w-56 lg:w-48 md:w-64" :src="props.imgPath" />
         </div>
         <audio id="word-sound">
